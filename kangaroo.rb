@@ -19,3 +19,5 @@ x2 = x2.to_i
 v2 = v2.to_i
 result = kangaroo(x1, v1, x2, v2)
 puts result;
+ #0 2 5 3 NO
+ # 0 3 4 2 YES
