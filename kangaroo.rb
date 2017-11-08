@@ -1,5 +1,15 @@
 def kangaroo(x1, v1, x2, v2)
     # Complete this function
+    diff = x1 - x2
+    last_diff = diff
+    until last_diff > diff
+      return 'YES' if diff == 0
+      last_diff = diff
+      x1 += v1
+      x2 += v2
+      diff = x1 - x2
+    end
+    return 'NO'
 end
 
 x1, v1, x2, v2 = gets.strip.split(' ')
