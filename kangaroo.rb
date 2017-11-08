@@ -1,13 +1,13 @@
 def kangaroo(x1, v1, x2, v2)
     # Complete this function
-    diff = x1 - x2
+    diff = (x1 - x2).abs
     last_diff = diff
     until last_diff > diff
       return 'YES' if diff == 0
       last_diff = diff
       x1 += v1
       x2 += v2
-      diff = x1 - x2
+      diff = (x1 - x2).abs
     end
     return 'NO'
 end
