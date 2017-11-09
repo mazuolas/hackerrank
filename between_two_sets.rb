@@ -17,6 +17,7 @@ def getTotalX(a, b)
     count
 end
 
+
 n, m = gets.strip.split(' ')
 n = n.to_i
 m = m.to_i
