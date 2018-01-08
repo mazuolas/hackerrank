@@ -2,6 +2,7 @@
 
 def solve(n, s, d, m)
     # Complete this function
+    
 end
 
 n = gets.strip.to_i
