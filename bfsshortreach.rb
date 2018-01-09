@@ -20,7 +20,7 @@ class Node
       distance += 6
       children = []
       queue.each do |n|
-        n.edges.each do |e|
+        n.edges.values.each do |e|
           unless seen.include?(e)
             children << e
             seen << e
