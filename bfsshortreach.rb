@@ -11,10 +11,6 @@ class Node
     @edges << e
   end
 
-  def connected?(e)
-    @edges.includes?(e)
-  end
-
   def find_distance(target)
     distance = 6
     queue = @edges.dup
