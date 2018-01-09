@@ -46,23 +46,36 @@ def bfs(n, m, edges, s)
     edges.each do |edge|
       u, v = edge[0], edge[1]
       nodes[u].add_edge(edges[v])
-      nodes.edge[v].add_edge(edges[u])
+      nodes[v].add_edge(edges[u])
     end
+    target = nodes[s]
+    distances = []
+    (n+1).times do |n|
+      next if (n == 0 || n == s)
+      distances << nodes[n].find_distance(target)
+    end
+    distances
 end
 
-q = gets.strip.to_i
-for a0 in (0..q-1)
-    n, m = gets.strip.split(' ')
-    n = n.to_i
-    m = m.to_i
-    edges = Array.new(m)
-    for edges_i in (0..m-1)
-        edges_t = gets.strip
-        edges[edges_i] = edges_t.split(' ').map(&:to_i)
-    end
-    s = gets.strip.to_i
-    result = bfs(n, m, edges, s)
-    print result.join(" ")
+# q = gets.strip.to_i
+# for a0 in (0..q-1)
+#     n, m = gets.strip.split(' ')
+#     n = n.to_i
+#     m = m.to_i
+#     edges = Array.new(m)
+#     for edges_i in (0..m-1)
+#         edges_t = gets.strip
+#         edges[edges_i] = edges_t.split(' ').map(&:to_i)
+#     end
+#     s = gets.strip.to_i
+#     result = bfs(n, m, edges, s)
+#     print result.join(" ")
+#
+#
+# end
 
-
-end
+n = 4
+m = 2
+edges = [[1,2],[1,3]]
+s = 1
+p bfs(n, m, edges, s)
