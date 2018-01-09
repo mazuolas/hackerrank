@@ -18,6 +18,15 @@ end
 
 def bfs(n, m, edges, s)
     # Complete this function
+    nodes = []
+    (n+1).times do |n|
+      nodes << Node.new(n)
+    end
+    edges.each do |edge|
+      u, v = edge[0], edge[1]
+      nodes[u].add_edge(v)
+      nodes.edge[v].add_edge(u)
+    end
 end
 
 q = gets.strip.to_i
