@@ -35,12 +35,13 @@ end
 
 def bfs(n, m, edges, s)
     # Complete this function
-    nodes = []
-    (n+1).times do |n|
-      nodes << Node.new(n)
-    end
+    nodes = {}
+
     edges.each do |edge|
       u, v = edge[0], edge[1]
+      nodes[u] ||= Node.new(u)
+      nodes[v] ||= Node.new(v)
+
       nodes[u].add_edge(nodes[v])
       nodes[v].add_edge(nodes[u])
     end
@@ -48,7 +49,11 @@ def bfs(n, m, edges, s)
     distances = []
     (n+1).times do |n|
       next if (n == 0 || n == s)
-      distances << nodes[n].find_distance(target)
+      if nodes[n]
+        distances << nodes[n].find_distance(target)
+      else
+        distances << -1
+      end
     end
     distances
 end
