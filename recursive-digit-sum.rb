@@ -2,13 +2,9 @@
 
 def digitSum(n, k = 1)
     # Complete this function
-    return n if n < 10
-    sum = 0
-    until n = 0
-      sum += n % 10
-      n = n/10
-    end
-    digitSum(sum*k)
+    return n if n.length == 1
+    sum = n.split('').map(&:to_i).sum
+    digitSum((sum*k).to_s)
 end
 
 n, k = gets.strip.split(' ')
