@@ -45,8 +45,8 @@ def bfs(n, m, edges, s)
     end
     edges.each do |edge|
       u, v = edge[0], edge[1]
-      nodes[u].add_edge(edges[v])
-      nodes[v].add_edge(edges[u])
+      nodes[u].add_edge(nodes[v])
+      nodes[v].add_edge(nodes[u])
     end
     target = nodes[s]
     distances = []
