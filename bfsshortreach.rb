@@ -4,16 +4,16 @@ class Node
 
   def initialize(v)
     @value = v
-    @edges = []
+    @edges = {}
   end
 
   def add_edge(e)
-    @edges << e
+    @edges[e.value] = e
   end
 
   def find_distance(target)
     distance = 6
-    queue = @edges.dup
+    queue = @edges.values.dup
     seen = queue.dup
     until queue.empty?
       return distance if queue.include?(target)
