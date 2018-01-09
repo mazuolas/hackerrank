@@ -5,7 +5,8 @@ def solve(n, s, d, m)
     count = 0
     s.each_with_index do |el, i|
       next if ((i+m) > n )
-      count += 1 if s[i..i+d].sum == d
+      sum = s[i,m].sum
+      count += 1 if sum == d
     end
     count
 end
