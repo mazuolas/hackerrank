@@ -1,4 +1,20 @@
 #!/bin/ruby
+class Node
+  attr_accessor :value, :edges
+
+  def initialize(v)
+    @value = v
+    @edges = []
+  end
+
+  def add_edge(e)
+    @edges << e
+  end
+
+  def connected?(e)
+    @edges.includes?(e)
+  end
+end
 
 def bfs(n, m, edges, s)
     # Complete this function
