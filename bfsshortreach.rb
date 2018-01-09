@@ -14,6 +14,27 @@ class Node
   def connected?(e)
     @edges.includes?(e)
   end
+
+  def find_distance(target)
+    distance = 6
+    queue = @edges.dup
+    seen = queue
+    until queue.empty?
+      return distance if queue.include?(target)
+      distance += 6
+      children = []
+      queue.each do |n|
+        n.edges.each do |e|
+          unless seen.includes?(e)
+            children << e
+            seen << e
+          end
+        end
+      end
+      queue = children
+    end
+    -1
+  end
 end
 
 def bfs(n, m, edges, s)
@@ -24,8 +45,8 @@ def bfs(n, m, edges, s)
     end
     edges.each do |edge|
       u, v = edge[0], edge[1]
-      nodes[u].add_edge(v)
-      nodes.edge[v].add_edge(u)
+      nodes[u].add_edge(edges[v])
+      nodes.edge[v].add_edge(edges[u])
     end
 end
 
