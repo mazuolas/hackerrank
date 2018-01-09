@@ -14,16 +14,16 @@ class Node
   def find_distance(target)
     distance = 6
     queue = @edges.values.dup
-    seen = queue.dup
+    seen = @edges.dup
     until queue.empty?
       return distance if queue.include?(target)
       distance += 6
       children = []
       queue.each do |n|
         n.edges.values.each do |e|
-          unless seen.include?(e)
+          unless seen[e]
             children << e
-            seen << e
+            seen[e] = true
           end
         end
       end
