@@ -74,9 +74,3 @@ for a0 in (0..q-1)
 
 
 end
-
-# n = 4
-# m = 2
-# edges = [[1,2],[1,3]]
-# s = 1
-# p bfs(n, m, edges, s)
